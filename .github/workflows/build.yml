@@ -16,7 +16,7 @@ jobs:
         id: compile
         run: |
           msbuild Solution.sln /p:Configuration=Release
-          cp -R bin/Release bin/Release_normal
+          cp -R bin/Output bin/Output_normal
           msbuild Project.csproj /p:Configuration=Release
 
       - uses: ./.github/actions/notify_failure
@@ -34,5 +34,5 @@ jobs:
           BOT_AVATAR: '${{ secrets.AVATAR_URL }}'
           NOTIFY_MESSAGE: '${{ secrets.SUCCEED_MESSAGE }}'
           WEBHOOK_URL: '${{ secrets.WEBHOOK_URL }}'
-          SOURCE_FILE: 'bin/Release'
+          SOURCE_FILE: 'Output'
           DEST_NAME: 'Archive'
