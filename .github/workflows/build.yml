@@ -16,7 +16,7 @@ jobs:
         id: compile
         run: |
           msbuild Solution.sln /p:Configuration=Release
-          cp -R bin/Output bin/Output_normal
+          cp -R Output Output_normal
           msbuild Project.csproj /p:Configuration=Release
 
       - uses: ./.github/actions/notify_failure
