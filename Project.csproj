@@ -9,7 +9,7 @@
     <RootNamespace>RootNamespace</RootNamespace>
     <AssemblyName>AssemblyName</AssemblyName>
     <IntermediateOutputPath>.\obj\$(Configuration)\</IntermediateOutputPath>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
