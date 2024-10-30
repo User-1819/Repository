@@ -1,37 +1,60 @@
-﻿public class Program
+﻿namespace Namespace
+{
+    public class Class
     {
         public static System.UInt64 Number = 0;
         public static System.UInt64 Number2 = 0;
         public static System.UInt64 Number3 = System.UInt64.MaxValue;
 
-    public static void Main(System.String[] args)
-    {
-        System.String file = "File.txt";
-        if (!System.IO.File.Exists(file))
+        public static void Main(System.String[] args)
         {
-            System.IO.File.WriteAllText(file, "Goodbye Cruel World!");
-  
+            System.String File = "File.txt";
+            if (!System.IO.File.Exists(File))
+            {
+                System.IO.File.WriteAllText(File, "Goodbye Cruel World!" + System.Environment.NewLine);
+
+            }
+            System.Console.WriteLine("WARNING! THIS A FILE CLONER! " +
+                  "EXECUTING THIS WILL RESULT IN A FILE OVERLOAD!");
+            System.Console.ReadKey();
+            Namespace.Class.End();
         }
-        System.Console.WriteLine("WARNING! THIS A FILE CLONER! " +
-              "EXECUTING THIS WILL RESULT IN A FILE OVERLOAD!");
-        System.Console.ReadKey();
-        Program.End();
-    }
-    public static void End()
-    {
-        System.Console.Clear();
-        System.String File = "File.txt";
-        System.String contents = System.IO.File.ReadAllText(File);
-        for (Program.Number = 0; Program.Number < Program.Number3; Program.Number2++)
+        public static void End()
         {
-                    System.IO.File.AppendAllText(File, contents);
-                    System.Console.Write('\r' + (Program.Number2 + 1).ToString());
-                    System.Console.Title = (Program.Number2 + 1).ToString();
+            System.Console.Clear();
+            System.String File = "File.txt";
+            System.String Contents = System.IO.File.ReadAllText(File);
+            System.String File2 = "File (" + Namespace.Class.Number2 + ").txt";
+            for (Namespace.Class.Number = 0; Namespace.Class.Number < Namespace.Class.Number3; Namespace.Class.Number2++)
+            {
+                try
+                {
+                    System.IO.File.AppendAllText(File, Contents);
+                    System.Console.Write('\r' + (Namespace.Class.Number2 + 1).ToString());
+                    System.Console.Title = (Namespace.Class.Number2 + 1).ToString();
                     System.Console.Out.Flush();
-                    System.String File2 = "File (" + Program.Number2 + ").txt";
-                    System.IO.File.Copy(File, File2);
-                    File = File2;
-        }   
-     System.Console.WriteLine();
+                    try
+                    {
+                        File2 = "File (" + Namespace.Class.Number2 + ").txt";
+                        System.IO.File.Copy(File, File2);
+                        File = File2;
+                    }
+                    catch (System.Exception ex)
+                    {
+                        System.Console.WriteLine("Exception occurred: {0}", ex);
+                        System.IO.File.Delete(File2);
+                        Namespace.Class.End();
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    System.Console.WriteLine("Exception occurred: {0}", ex);
+                    System.IO.File.Delete(File);
+                    Namespace.Class.End();
+                }
+
+            }
+            System.Console.WriteLine();
+        }
     }
 }
