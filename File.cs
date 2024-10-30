@@ -1,6 +1,6 @@
 ﻿namespace Namespace
 {
-    public class Class
+    public static class Class
     {
         public static System.UInt64 Number = 0;
         public static System.UInt64 Number2 = 0;
