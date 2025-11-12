@@ -18,16 +18,7 @@ jobs:
         id: compile
         run: |
           msbuild Solution.sln /p:Configuration=Release
-          cp -R Output Output_normal
           msbuild Project.csproj /p:Configuration=Release
-
-      - uses: ./.github/actions/notify_failure
-        if: failure()
-        with:
-          BOT_USERNAME: '${{ secrets.BOT_NAME }}'
-          BOT_AVATAR: '${{ secrets.AVATAR_URL }}'
-          NOTIFY_MESSAGE: '${{ secrets.FAIL_MESSAGE }}'
-          WEBHOOK_URL: '${{ secrets.WEBHOOK_URL }}'
           
       - uses: ./.github/actions/notify_success
         if: ${{ always() && steps.compile.outcome == 'success' }}
@@ -38,3 +29,11 @@ jobs:
           WEBHOOK_URL: '${{ secrets.WEBHOOK_URL }}'
           SOURCE_FILE: 'Output'
           DEST_NAME: 'Archive'
+
+      - uses: ./.github/actions/notify_failure
+        if: failure()
+        with:
+          BOT_USERNAME: '${{ secrets.BOT_NAME }}'
+          BOT_AVATAR: '${{ secrets.AVATAR_URL }}'
+          NOTIFY_MESSAGE: '${{ secrets.FAIL_MESSAGE }}'
+          WEBHOOK_URL: '${{ secrets.WEBHOOK_URL }}'
