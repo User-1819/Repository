@@ -22,7 +22,7 @@ jobs:
           msbuild Project.csproj /p:Configuration=Release
 
       - uses: ./.github/actions/notify_failure
-        if: ${{ always() && steps.compile.outcome == 'failure' }}
+        if: failure()
         with:
           BOT_USERNAME: '${{ secrets.BOT_NAME }}'
           BOT_AVATAR: '${{ secrets.AVATAR_URL }}'
