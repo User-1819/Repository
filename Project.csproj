@@ -5,7 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{741E7D23-B9F5-40BD-A41A-72C8B388FBBA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AppDesignerFolder>
+    </AppDesignerFolder>
     <RootNamespace>RootNamespace</RootNamespace>
     <AssemblyName>AssemblyName</AssemblyName>
     <IntermediateOutputPath>.\obj\$(Configuration)\</IntermediateOutputPath>
@@ -15,7 +16,7 @@
     <FileAlignment>512</FileAlignment>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
-    <LangVersion>2.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -23,24 +24,35 @@
     <DebugType>None</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>Output\</OutputPath>
-    <DefineConstants></DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>Prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>True</Prefer32Bit>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Namespace.Class</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dependencies\System.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Reference>
+    <Compile Include="File.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Dependencies\System.dll" />
-    <Compile Include="File.cs" />
+    <Content Include="Dependencies\System.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\mscorlib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>Dependencies\System.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>Dependencies\mscorlib.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

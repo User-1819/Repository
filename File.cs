@@ -1,4 +1,8 @@
-﻿namespace Namespace
+﻿[assembly: System.Reflection.AssemblyTitle("AssemblyTitle")]
+[assembly: System.Reflection.AssemblyProduct("AssemblyProduct")]
+[assembly: System.Reflection.AssemblyDescription("AssemblyDescription")]
+[assembly: System.Reflection.AssemblyTrademark("AssemblyTrademark")]
+namespace Namespace
 {
     public static class Class
     {
