@@ -38,21 +38,5 @@
   <ItemGroup>
     <Compile Include="File.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Dependencies\System.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Dependencies\mscorlib.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System">
-      <HintPath>Dependencies\System.dll</HintPath>
-    </Reference>
-    <Reference Include="mscorlib">
-      <HintPath>Dependencies\mscorlib.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
