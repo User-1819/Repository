@@ -29,7 +29,7 @@
     <ErrorReport>Prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>True</Prefer32Bit>
-    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup>

@@ -19,7 +19,6 @@ inputs:
     description: 'Discord webhook URL'
     required: true
     type: string
-
 runs:
   using: "composite"
   steps:

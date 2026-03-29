@@ -2,11 +2,9 @@ name: Build
 on:
   push:
   workflow_dispatch:
-
 concurrency:
   group: ${{ github.ref }}-latest
   cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -18,7 +16,6 @@ jobs:
         run: |
           msbuild Solution.sln /p:Configuration=Release
           msbuild Project.csproj /p:Configuration=Release
-          
       - uses: ./.github/actions/notify_success
         if: ${{ always() && steps.compile.outcome == 'success' }}
         with:
@@ -28,7 +25,6 @@ jobs:
           WEBHOOK_URL: '${{ secrets.WEBHOOK_URL }}'
           SOURCE_FILE: 'Output'
           DEST_NAME: 'Archive'
-
       - uses: ./.github/actions/notify_failure
         if: failure()
         with:
